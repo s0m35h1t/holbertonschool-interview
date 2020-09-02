@@ -15,8 +15,8 @@ try:
         if len(infos_list) > 2:
             try:
                 f_size += int(infos_list[-1])
-            except Exception:
-                raise Exception
+            except Exception as e:
+                raise e
             try:
                 if infos_list[-2] in status_codes:
                     if isinstance(int(infos_list[-2]), int):
