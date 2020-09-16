@@ -12,11 +12,13 @@
 
 int is_palindrome(unsigned long n)
 {
-	unsigned long r = 0, on = n;
+	unsigned long r = 0, on, re;
 
+	on = n;
 	while (n != 0)
 	{
-		r = r * 10 + (n % 10);
+		re = n % 10;
+		r = r * 10 + re;
 		n /= 10;
 	}
 	if (on == r)
