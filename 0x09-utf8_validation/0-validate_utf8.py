@@ -26,18 +26,25 @@ def validUTF8(data):
     #         if b:
     #             b -= 1
     # return b == 0
-    def length(n):
-        return len('{:08b}'.format(n).split('0', 1)[0])
+    n_bytes = 0
 
-    i = 0
-    while i < len(data):
-        le = length(data[i])
-        i += 1
-        if le == 1 or le > 4:
+    mask1 = 1 << 7
+    mask2 = 1 << 6
+
+    for num in data:
+        mask = 1 << 7
+
+        if n_bytes == 0:
+            while(mask & num):
+                n_bytes += 1
+                mask = mask >> 1
+
+            if(n_bytes == 0):
+                continue
+
+            if n_bytes == 1 or n_bytes > 4:
+                return False
+        else:
             return False
-        if le > 1:
-            for _ in range(le-1):
-                if i == len(data) or length(data[i]) != 1:
-                    return False
-                i += 1
-    return True
+        n_bytes -= 1
+    return (n_bytes == 0)
