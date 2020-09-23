@@ -26,6 +26,18 @@ def validUTF8(data):
     #         if b:
     #             b -= 1
     # return b == 0
-    utf = ''.join([bin(byte)[2:].zfill(8) for byte in data])
-    return bool(re.search(
-        r'^((0[01]{7})|(110[01]{5}10[01]{6})|(1110[01]{4}(10[01]{6}){2})|(11110[01]{3}(10[01]{6}){3}))+$', utf))
+    def length(n):
+        return len('{:08b}'.format(n).split('0', 1)[0])
+
+    i = 0
+    while i < len(data):
+        le = length(data[i])
+        i += 1
+        if le == 1 or le > 4:
+            return False
+        if le > 1:
+            for _ in range(le-1):
+                if i == len(data) or length(data[i]) != 1:
+                    return False
+                i += 1
+    return True
