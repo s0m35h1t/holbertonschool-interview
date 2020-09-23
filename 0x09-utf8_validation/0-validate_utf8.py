@@ -26,16 +26,6 @@ def validUTF8(data):
     #         if b:
     #             b -= 1
     # return b == 0
-    ct = 0
-    for i in data:
-        bi = '{:08b}'.format(i)
-        if ct == 0:
-            if bi.startswith('0'): continue
-            elif bi.startswith('110'): ct = 1
-            elif bi.startswith('1110'): ct = 2
-            elif bi.startswith('11110'): ct = 3
-            else: return False
-        else:
-            if not bi.startswith('10'): return False
-            ct -= 1
-    return ct == 0
+    utf = ''.join([bin(byte)[2:].zfill(8) for byte in data])
+    return bool(re.search(
+        r'^((0[01]{7})|(110[01]{5}10[01]{6})|(1110[01]{4}(10[01]{6}){2})|(11110[01]{3}(10[01]{6}){3}))+$', utf))
