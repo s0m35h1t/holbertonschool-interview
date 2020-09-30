@@ -7,7 +7,6 @@
  * @direction: can be either SLIDE_LEFT or SLIDE_RIGHT
  * Return: 1 upon success, or 0 upon failure
  */
-
 int slide_line(int *line, size_t size, int direction)
 {
 	size_t pos_1 = 0, pos_2 = 1;
