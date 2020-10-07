@@ -2,8 +2,8 @@
 
 /**
  * pchar - determines char to print '#' or ' '
- * @row: row idx
- * @col: column idx
+ * @r: row idx
+ * @c: column idx
  *
  * Return: '#' or ' '
  */
