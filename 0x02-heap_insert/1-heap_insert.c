@@ -71,8 +71,8 @@ queue *push_queue(queue **qnode, heap_t *curr)
  *
  * Return: ptr to inserted node
  */
-heap_t *push_insert(heap_t *curr, queue **currq, heap_t **inserted, heap_t **dir,
-		int value)
+heap_t *push_insert(heap_t *curr, queue **currq, heap_t **inserted,
+					heap_t **dir, int value)
 {
 	if (*dir)
 	{
