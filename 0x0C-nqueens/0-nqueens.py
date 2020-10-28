@@ -36,7 +36,7 @@ if __name__ == '__main__':
     else:
         print("N must be a number")
         sys.exit(1)
-    if the_queen < 4:
+    if queen < 4:
         print("N must be at least 4")
         sys.exit(1)
 
