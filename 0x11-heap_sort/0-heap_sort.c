@@ -2,9 +2,9 @@
 
 /**
  *	sift_ - sift positions in the heap
- *	@array: Array to use for the sift
+ *	@arr: Array to use for the sift
  *	@size: Array size
- *	@start: Shift start position
+ *	@beg: Shift start position
  *	@end: Shift End position
  */
 void sift_(int *arr, size_t size, size_t beg, size_t end)
