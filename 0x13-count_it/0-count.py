@@ -32,6 +32,6 @@ def count_words(subreddit, word_list, hot_titles=[], after='null'):
         for i, c in sorted(word_dict.items(), key=lambda x: x[1],
                            reverse=True):
             if c != 0:
-                print("{}: {}".format(i, c))
+                print("{}: {}".format(i.lower(), c))
     else:
         return count_words(subreddit, word_list, hot_titles, after)
