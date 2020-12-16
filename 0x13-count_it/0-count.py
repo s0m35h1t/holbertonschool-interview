@@ -6,7 +6,7 @@ import requests
 def count_words(subreddit, word_list, hot_titles=[], after='null'):
     """parses the title of all hot articles"""
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT/5.1;Win64,x64) AppleWebKit/537.12 Gecko/20101016 Chrome/62.0.2856.48 Safari/537.88'}
+        'User-Agent': 'Mozilla/5.0 (Windows NT/5.1;Win64,x64)'}
     res = requests.get('https://www.reddit.com/r/' +
                        subreddit + '/hot.json',
                        headers=headers,
@@ -27,7 +27,8 @@ def count_words(subreddit, word_list, hot_titles=[], after='null'):
                 c += [i.lower() for i in t.split()].count(w.lower())
             word_dict[w] += c
 
-        for i, c in sorted(word_dict.items(), key=lambda x: x[1], reverse=True):
+        for i, c in sorted(word_dict.items(), key=lambda x: x[1],
+                           reverse=True):
             if c != 0:
                 print("{}: {}".format(i, c))
     else:
