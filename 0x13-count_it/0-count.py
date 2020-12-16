@@ -19,6 +19,8 @@ def count_words(subreddit, word_list, hot_titles=[], after='null'):
         hot_titles.append(i.get('data').get('title'))
     after = res.json().get('data').get('after')
 
+    word_list = list(set([w.lower() for w in word_list]))
+
     if after is None:
         word_dict = {w: 0 for w in word_list}
         for w in word_list:
