@@ -22,10 +22,10 @@ def count_words(subreddit, word_list, hot_titles=[], after='null'):
     if after is None:
         word_dict = {w: 0 for w in word_list}
         for w in word_list:
-            c = 0
+            count = 0
             for t in hot_titles:
-                c += [i.lower() for i in t.split()].count(w.lower())
-            word_dict[w] += c
+                count += [i.lower() for i in t.split()].count(w.lower())
+            word_dict[w] += count
 
         for i, c in sorted(word_dict.items(), key=lambda x: x[1],
                            reverse=True):
