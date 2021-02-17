@@ -1,6 +1,5 @@
 #include "sort.h"
 
-
 /**
  * merge_sort - merge sort in place on an array of integers
  * @array: the array to size
