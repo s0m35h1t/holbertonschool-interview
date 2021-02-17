@@ -1,18 +1,6 @@
 #include "sort.h"
 
 /**
- * print_ - print
- * @left: the array to size
- * @lsize: size of the array
- */
-void print_(int left, size_t lsize)
-{
-	printf("Merging...\n[left]: ");
-	print_array(left, lsize);
-	printf("[right]: ");
-}
-
-/**
  * merge_sort - merge sort in place on an array of integers
  * @array: the array to size
  * @size: size of the array
@@ -36,7 +24,9 @@ void merge_sort(int *array, size_t size)
 	merge_sort(array + lsize, re_size);
 	left = array;
 	right = array + lsize;
-	print_(left, lsize);
+	printf("Merging...\n[left]: ");
+	print_array(left, lsize);
+	printf("[right]: ");
 	print_array(right, re_size);
 	for (idx = 0; lsize > 0 && re_size > 0; idx++)
 	{
